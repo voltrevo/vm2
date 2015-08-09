@@ -2,6 +2,8 @@
 
 vm2 is a sandbox that can run untrusted code with whitelisted built-in node objects. Securely!
 
+- Note: This fork does not enforce `'use strict';`. As much as I feel strongly about strict mode too and always use it in my own code, this was breaking dependencies for me. Any security based on this precaution is not available in this fork.
+
 ## Features
 
 * Runs untrusted code securely in a single process with your code side by side
@@ -19,7 +21,6 @@ vm2 is a sandbox that can run untrusted code with whitelisted built-in node obje
 * It uses internal VM module to create secure context
 * It compiles native modules inside a new context
 * It overrides native require to control access to modules
-* It forces modules (even native ones) to use `use strict`
 
 ## Installation
 
@@ -42,7 +43,7 @@ VM is a simple sandbox, without `require` feature, to synchronously run an untru
 
 **Options:**
 
-* `timeout` - Script timeout in milliseconds. 
+* `timeout` - Script timeout in milliseconds.
 * `sandbox` - VM's global object.
 * `language` - `javascript` (default) or `coffeescript`
 
